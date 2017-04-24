@@ -16,7 +16,7 @@
 * Working with Forms
 * Lifting State Up
 
->## Describe tools like Babel, WebPack and create-react-app and how the fit in to the React-world
+>## Describe tools like Babel, WebPack and create-react-app and how they fit in to the React-world
 
 >## Explain, using examples, about Class Components, versus pure JavaScript functions in React, and when to use them.
 
