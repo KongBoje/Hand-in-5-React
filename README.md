@@ -8,16 +8,22 @@
 
 >## Explain, using an example, the fundamental building blocks in React Applications like:
 * JSX
+* Rendering Elements
+* Components and Props
+* State and LifeCycle
+* Handling Events
+* List and Keys
+* Working with Forms
+* Lifting State Up
 
+>## Describe tools like Babel, WebPack and create-react-app and how the fit in to the React-world
 
->## 
+>## Explain, using examples, about Class Components, versus pure JavaScript functions in React, and when to use them.
 
->## 
+>## Explain the purpose of Client Side Routing in a SPA
 
->## 
+>## Explain, using an example of your own, the basic “building blocks” in react-router
 
->## 
+>## Explain what is required to use react-router with a create-react-app project build from scratch
 
->## 
-
->## 
+>## Explain, using examples, how JavaScript array methods, like filter, map and (reduce) are used to generate dynamic HTML structures (tables, ul's etc.), and explain about React Keys.
