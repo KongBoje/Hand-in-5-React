@@ -22,6 +22,7 @@ Performance is certainly better with client-side rendering if you do it right, b
 Flexibility in your UI design is perhaps the other major advantage.
 
 ---
+---
 
 >## Describe fundamental differences between the SPA-framework/libraries AngularJS and React
 ### AngularJS vs React
