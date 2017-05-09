@@ -20,7 +20,7 @@ A major architectural advantage of a SPA in many cases is the huge reduction in 
 Performance is certainly better with client-side rendering if you do it right, but this is not the most compelling reason to build a SPA. (Network speeds are improving, after all.) Don't make the case for SPA on this basis alone.
 
 Flexibility in your UI design is perhaps the other major advantage.
-
+---
 >## Describe fundamental differences between the SPA-framework/libraries AngularJS and React
 ### AngularJS vs React
 The main differences between AngularJS (the framework) and React (the library) are in the following aspects: componentization, data binding, performance, dependency resolution, directives, and templating.
