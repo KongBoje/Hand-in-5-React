@@ -161,6 +161,49 @@ export default class JSX_App extends React.Component {
 In this example we see Nested elements(the h1 tag inside the div tag, which is the wrapper), Attributes(data-myattribute in the p tag), Javascript expressions(the {1+1} and the conditional (ternary) expression inside the h2 tag {i == 1 ? 'True!' : 'False'}), Styling which is seen with the Styler code above the return statement and comments(buttom place in the code just above the closing tag for div).
 
 ### Rendering Elements
+Elements are the smallest building blocks of React apps.
+
+An element describes what you want to see on the screen:
+
+Unlike browser DOM elements, React elements are plain objects, and are cheap to create. React DOM takes care of updating the DOM to match the React elements.
+
+#### Rendering example:
+```javascript
+class RouterComponent extends React.Component{
+  render(){
+    return (
+      <Router history={hashHistory}>
+          <Route path="/" component={App}>
+            <IndexRoute component={Info}/>
+            <Route path="jsx" component={JSX_App} />
+            <Route path="components" component={ComponentsApp} />
+            <Route path="state" component={StateApp} />
+            <Route path="propsoverview" component={PropsOverview} />
+            <Route path="propsvalidation" component={PropsValidation} />
+            <Route path="componentapi" component={ComponentAPI_App} />
+            <Route path="componentlifecycle" component={ComponentLifecycleAPP} />
+            <Route path="forms" component={FormsApp} />
+            <Route path="events" component={EventApp} />
+            <Route path="refs" component={RefsApp} />
+            <Route path="keys" component={KeysApp} />         
+            <Route path="more" component={More} />         
+            <Route path="*" component={Info} />         
+          </Route>
+        </Router>
+    )
+  }
+}
+
+ReactDOM.render(<RouterComponent/>, document.getElementById('root'));
+```
+We call this a "root" DOM node because everything inside it will be managed by React DOM.
+
+Applications built with just React usually have a single root DOM node. If you are integrating React into an existing app, you may have as many isolated root DOM nodes as you like.
+
+To render this React element into a root DOM node, we pass the <RouterComponent/> into ReactDOM.render();
+
+the ReactDOM.render(); is actually the only piece of code we need in the index.js. We can take the RouterComponent component into it's own component file.
+
 ### Components and Props
 ### State and LifeCycle
 ### Handling Events
