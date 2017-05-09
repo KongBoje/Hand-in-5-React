@@ -158,7 +158,7 @@ export default class JSX_App extends React.Component {
    }
 }
 ```
-In this example we see Nested elements(<h1> inside <div> which is the wrapper), Attributes(data-myattribute in the <p> tag), Javascript expressions(the {1+1} and the conditional (ternary) expression <h2>{i == 1 ? 'True!' : 'False'}</h2>), Styling which is seen with the Styler code above the return statement and comments(buttom place in the code just above the closing tag for div).
+In this example we see Nested elements(the h1 tag inside the div tag, which is the wrapper), Attributes(data-myattribute in the p tag), Javascript expressions(the {1+1} and the conditional (ternary) expression inside the h2 tag {i == 1 ? 'True!' : 'False'}), Styling which is seen with the Styler code above the return statement and comments(buttom place in the code just above the closing tag for div).
 
 ### Rendering Elements
 ### Components and Props
