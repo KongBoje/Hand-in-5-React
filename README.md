@@ -205,10 +205,204 @@ To render this React element into a root DOM node, we pass the <RouterComponent/
 the ReactDOM.render(); is actually the only piece of code we need in the index.js. We can take the RouterComponent component into it's own component file.
 
 ### Components and Props
+#### Components
+the first component in the example below is ComponentsApp, which is stateless. This component is owner of Header and Content. We are creating Header and Content separately and just adding it inside JSX tree in our App component. Only App component needs to be exported.
+#### Stateless Component example:
+```javascript
+import React from "react"
+
+class ComponentsApp extends React.Component {
+   render() {
+      return (
+         <div>
+           <a href="https://www.tutorialspoint.com/reactjs/reactjs_components.htm" 
+           target="_blank">Component tutorial</a>
+
+            <Header/>
+            <Content/>
+         </div>
+      )
+   }
+}
+
+class Header extends React.Component {
+   render() {
+      return (
+         <div>
+            <h1>Header</h1>
+         </div>
+      );
+   }
+}
+
+class Content extends React.Component {
+   render() {
+      return (
+         <div>
+            <h2>Content</h2>
+            <p>The content text!</p>
+         </div>
+      );
+   }
+}
+
+export default ComponentsApp;
+```
+This can be rendered with this code: ReactDOM.render(<ComponentsApp />, document.getElementById('app'));
+
+#### Stateful example:
+In this example the state will be set for owner component (App). The Header component is just added like in the last example since it doesn't need any state. Instead of content tag, we are creating table and tbody elements where we will dynamically insert TableRow for every object from the data array. You can see that we are using EcmaScript 2015 arrow syntax (⇒) which looks much cleaner then the old JavaScript syntax. This will help us create our elements with fewer lines of code. It is especially useful when you need to create list with a lot of items.
+```javascript
+class App extends React.Component {
+   constructor() {
+      super();
+		
+      this.state = {
+         data: 
+         [
+            {
+               "id":1,
+               "name":"Foo",
+               "age":"20"
+            },
+				
+            {
+               "id":2,
+               "name":"Bar",
+               "age":"30"
+            },
+				
+            {
+               "id":3,
+               "name":"Baz",
+               "age":"40"
+            }
+         ]
+      }
+   }
+	
+   render() {
+      return (
+         <div>
+            <Headers/>
+            <table>
+               <tbody>
+                  {this.state.data.map((person, i) => <TableRow key = {i} data = {person} />)}
+               </tbody>
+            </table>
+         </div>
+      );
+   }
+}
+
+class Headers extends React.Component {
+   render() {
+      return (
+         <div>
+            <h1>Header</h1>
+         </div>
+      );
+   }
+}
+
+class TableRow extends React.Component {
+   render() {
+      return (
+         <tr>
+            <td>{this.props.data.id}</td>
+            <td>{this.props.data.name}</td>
+            <td>{this.props.data.age}</td>
+         </tr>
+      );
+   }
+}
+
+export default App;
+```
+#### Props
+The main difference between state and props is that props are immutable. This is why container component should define state that can be updated and changed, while the child components should only pass data from the state using props.
+
+##### Default prop example
+```javascript
+import React from "react"
+
+class PropsOverview extends React.Component {
+   render() {
+      return (
+         <div>
+           <a href="https://www.tutorialspoint.com/reactjs/reactjs_props_overview.htm" target="_blank">Props Tutorial</a>
+
+           <h1>{this.props.headerProp}</h1>
+           <h2>{this.props.contentProp}</h2>
+         </div>
+      )
+   }
+}
+
+PropsOverview.defaultProps = {
+   headerProp: "Header from props...",
+   contentProp:"Content from props..."
+}
+
+export default PropsOverview;
+```
+##### State and Prop example:
+The example below shows how to combine state and props in your app. We are setting state in our parent component and passing it down the component tree using props. Inside render function, we are setting headerProp and contentProp that are used in child components.
+```javascript
+class PropsOverview extends React.Component {
+   constructor(props) {
+      super(props);
+		
+      this.state = {
+         header: "Header from props...",
+         "content": "Content from props..."
+      }
+   }
+	
+   render() {
+      return (
+         <div>
+            <a href="https://www.tutorialspoint.com/reactjs/reactjs_props_overview.htm" target="_blank">PropsOverview Tutorial</a>
+
+            <Header headerProp = {this.state.header}/>
+            <Content contentProp = {this.state.content}/>
+         </div>
+      );
+   }
+}
+
+class Header extends React.Component {
+   render() {
+      return (
+         <div>
+            <h1>{this.props.headerProp}</h1>
+         </div>
+      );
+   }
+}
+
+class Content extends React.Component {
+   render() {
+      return (
+         <div>
+            <h2>{this.props.contentProp}</h2>
+         </div>
+      );
+   }
+}
+
+export default PropsOverview;
+```
+The only thing in this example that is different is that the source of our data is now originally coming from the state.
+
 ### State and LifeCycle
+
 ### Handling Events
+
 ### List and Keys
+
 ### Working with Forms
+
 ### Lifting State Up
 
 
