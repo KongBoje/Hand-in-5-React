@@ -22,6 +22,7 @@ Performance is certainly better with client-side rendering if you do it right, b
 Flexibility in your UI design is perhaps the other major advantage.
 
 >## Describe fundamental differences between the SPA-framework/libraries AngularJS and React
+### AngularJS vs React
 The main differences between AngularJS (the framework) and React (the library) are in the following aspects: componentization, data binding, performance, dependency resolution, directives, and templating.
 
 ### Componentization
@@ -37,9 +38,15 @@ React provides a very simple and efficient way to build component trees. It boas
 
 ### Data Binding
 #### AngularJS
+AngularJS connects Document Object Model (DOM) values to Model data through the Controller using two-way data binding. In short, if the user interacts with an <input> field and provides a new value to the app, then not only the View is updated, but the Model as well. Two-way data binding is beneficial for AngularJS as it helps us write less boilerplate code to create interactions between components (the View and the Model) in our application. We don't have to invent a method to track changes in the app and change our JavaScript code accordingly.
+
+The drawback of Angular's two-way data binding approach is its negative impact on performance. AngularJS automatically creates a watcher for each binding. During development, we may come to a point when an app is packed with too many watchers for bound elements.
 
 #### React
+But what are the advantages of React over AngularJS with regards to data binding? React uses one-way data binding, meaning we are able to direct the flow of data only in one direction. Because of this, it’s always clear where the data was changed.
 
+##### Flux Data flow
+![alt text](https://rubygarage.org/uploads/article_image/file/122/reactjs-vs-angularjs-data-flow.jpg)
 
 ### Performance
 #### AngularJS
