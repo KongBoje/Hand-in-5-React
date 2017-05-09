@@ -207,7 +207,7 @@ the ReactDOM.render(); is actually the only piece of code we need in the index.j
 ### Components and Props
 #### Components
 the first component in the example below is ComponentsApp, which is stateless. This component is owner of Header and Content. We are creating Header and Content separately and just adding it inside JSX tree in our App component. Only App component needs to be exported.
-#### Stateless Component example:
+##### Stateless Component example:
 ```javascript
 import React from "react"
 
@@ -250,7 +250,7 @@ export default ComponentsApp;
 ```
 This can be rendered with this code: ReactDOM.render(<ComponentsApp />, document.getElementById('app'));
 
-#### Stateful example:
+##### Stateful example:
 In this example the state will be set for owner component (App). The Header component is just added like in the last example since it doesn't need any state. Instead of content tag, we are creating table and tbody elements where we will dynamically insert TableRow for every object from the data array. You can see that we are using EcmaScript 2015 arrow syntax (⇒) which looks much cleaner then the old JavaScript syntax. This will help us create our elements with fewer lines of code. It is especially useful when you need to create list with a lot of items.
 ```javascript
 class App extends React.Component {
