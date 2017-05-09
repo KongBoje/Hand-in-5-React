@@ -22,6 +22,42 @@ Performance is certainly better with client-side rendering if you do it right, b
 Flexibility in your UI design is perhaps the other major advantage.
 
 >## Describe fundamental differences between the SPA-framework/libraries AngularJS and React
+The main differences between AngularJS (the framework) and React (the library) are in the following aspects: componentization, data binding, performance, dependency resolution, directives, and templating.
+
+### Componentization
+#### AngularJS
+AngularJS has a very complex and fixed structure because it's based on the three layers — Model, View, and Controller — typical of single-page applications. An object $scope in AngularJS is responsible for the Model part, which is initialized by the Controller and then transformed into HTML to create the View for the user. AngularJS provides many standard services, factories, controllers, directives, and other components that will take some time for a JavaScript developer to master initially.
+
+#### React
+Facebook, the creator of React, chose an architecture different from that of AngularJS and similar MVC frameworks. In short, there is no “correct" structure for applications built with React.
+
+React is a large JavaScript library that helps us update the View for the user. But React still doesn't let us create applications on its own. The library lacks the model and controller layers. To fill in the gap, Facebook introduced Flux, which has numerous variants nowadays, to control the application workflow.
+
+React provides a very simple and efficient way to build component trees. It boasts a functional programming style where component definitions are declarative. Composing your app from React components is like composing a JavaScript program from functions.
+
+### Data Binding
+#### AngularJS
+
+#### React
+
+
+### Performance
+#### AngularJS
+
+#### React
+
+
+### Resolving Dependencies
+#### AngularJS
+
+#### React
+
+
+### Directives and Templates
+#### AngularJS
+
+#### React
+
 
 >## Describe the overall principles used in React to create a SPA
 
