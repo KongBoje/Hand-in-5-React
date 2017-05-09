@@ -32,6 +32,10 @@ The main differences between AngularJS (the framework) and React (the library) a
 AngularJS has a very complex and fixed structure because it's based on the three layers — Model, View, and Controller — typical of single-page applications. An object $scope in AngularJS is responsible for the Model part, which is initialized by the Controller and then transformed into HTML to create the View for the user. AngularJS provides many standard services, factories, controllers, directives, and other components that will take some time for a JavaScript developer to master initially.
 
 #### React
+Components are the heart and soul of React. They let you split the UI into independent, reusable pieces, and think about each piece in isolation.
+
+Conceptually, components are like JavaScript functions. They accept arbitrary inputs (called "props") and return React elements describing what should appear on the screen.
+
 Facebook, the creator of React, chose an architecture different from that of AngularJS and similar MVC frameworks. In short, there is no “correct" structure for applications built with React.
 
 React is a large JavaScript library that helps us update the View for the user. But React still doesn't let us create applications on its own. The library lacks the model and controller layers. To fill in the gap, Facebook introduced Flux, which has numerous variants nowadays, to control the application workflow.
@@ -103,8 +107,15 @@ Working with React may seem a bit easier starting out, because you write old-sch
 ---
 
 >## Describe the overall principles used in React to create a SPA
+### SPA Explanation and creation principles
+A single-page application (SPA) is a web application that fits on a single web page with the goal of providing a user experience similar to that of a desktop application. 
+In an SPA, either all necessary code – HTML, JavaScript, and CSS – is retrieved with a single page load, or the appropriate resources are dynamically loaded and added to the page as necessary, usually in response to user actions.
 
+The page does not reload at any point in the process, nor does control transfer to another page, although the location hash or the HTML5 History API can be used to provide the perception and navigability of separate logical pages in the application
 
+The task of navigating via URL's in a SPA is called Routing and is typically being handled by a specific Router Package There are several router-libraries out there, but the most commonly used is react-router
+
+So when you create a react SPA it really boils down to the react-router and the components beoing routed to.
 
 ---
 
