@@ -66,16 +66,39 @@ Now, instead of sending completely new HTML to the browser, React sends the HTML
 
 ### Resolving Dependencies
 #### AngularJS
+AngularJS uses a basic Object Oriented Programming (OOP) pattern called dependency injection, meaning we write dependencies in a separate file. It’s inconvenient to create a dependency directly in an object. In AngularJS, dependency injection is inherent to any standard functions that we declare for an AngularJS factory or service. We only pass dependencies as parameters in any order in our functions. This is where vanilla JavaScript is different from AngularJS, as the order of arguments in standard JS is strict.
+```javascript
+angular.module('todomvc')
+// Angular injects four dependencies in the TodoCtrl function – $scope, $routeParams, $filter, and store;
+.controller('TodoCtrl', function TodoCtrl($scope, $routeParams, $filter, store) {
+  'use strict';
+  var todos = $scope.todos = store.todos;
+  $scope.newTodo = '';
+  $scope.editedTodo = null;
+});
+```
+AngularJS automatically finds appropriate objects that are injected as the $routeParams, $filter, store, and $scope parameters. There are two functions that make dependency injection possible in the AngularJS framework: $inject and $provide.
 
 #### React
-
+The difference between React and AngularJS with regards to dependency injection is that React doesn’t offer any concept of a built-in container for dependency injection. But this doesn't mean we have to think of a method to inject dependencies in our React project. You can use several instruments to inject dependencies automatically in a React application. Such instruments include Browserify, RequireJS, EcmaScript 6 modules which we can use via Babel and so on. The only challenge is to pick a tool to use.
 
 ### Directives and Templates
 #### AngularJS
+Directives in AngularJS are a way to organize our work/code around the DOM. If working with AngularJS, we access the DOM only through directives. For example, AngularJS has many standard directives, such as ng-bind or ng-app, but we can create own directives as well. And we should. This is a powerful way to work with the DOM. On the other hand, the syntax for making private AngularJS directives is rather difficult to understand.
+
+We make our own directives in AngularJS to insert data into templates. The template must have an element with our directive written as an attribute. It's as simple as that. But AngularJS directives, if defined fully, are sophisticated. The object with settings, which we return in the directive, contains around ten properties. Such properties as templateUrl or template are easy to understand. But it’s not so clear how (and why) to define priority, terminal, scope, and other properties. Mastering the syntax of AngularJS directives may be a real challenge.
+
+In summary, in order to bind DOM elements with AngularJS applications, we use directives, both standard and specific.
 
 #### React
+React doesn’t offer division into templates and directives or template logic. The template logic should be written in the template itself. To see what this looks like, open an example from GitHub. You will notice that React's component app.TodoItem is created with a standard React.createClass() method. We pass an object with properties to this function. Such properties as componentDidUpdate, shouldComponentUpdate, handleKeyDown, or handleSubmit represent the logic – what will happen with our template. In the end of the component, we usually define the render property, which is a template to be rendered in the browser. Everything is located in one place, and the JSX syntax in the template is easy to understand even if you don’t know how to write in JSX. It's clear what is going to happen with our template, how it should be rendered and what information will be presented for it by properties.
 
+Such an approach of defining template and logic in one place is better as we spend less time initially on understanding what is happening.
 
+### Summarization
+To sum up, both AngularJS and React are great for writing single-page applications. But they are completely different instruments. Some programmers may say that React is better than AngularJS or vice versa. What’s really best for a given project, however, depends on how you use these instruments.
+
+Working with React may seem a bit easier starting out, because you write old-school JavaScript and build your HTML around it. But there are many additional tools you'll have to grasp, such as Flux. In turn, AngularJS implements a different approach organized around HTML. That's why we may see unusual syntax and solutions that seem questionable at first sight.
 
 ---
 
