@@ -22,7 +22,6 @@ Performance is certainly better with client-side rendering if you do it right, b
 Flexibility in your UI design is perhaps the other major advantage.
 
 ---
----
 
 >## Describe fundamental differences between the SPA-framework/libraries AngularJS and React
 ### AngularJS vs React
@@ -77,7 +76,14 @@ Now, instead of sending completely new HTML to the browser, React sends the HTML
 #### React
 
 
+
+---
+
 >## Describe the overall principles used in React to create a SPA
+
+
+
+---
 
 >## Explain, using an example, the fundamental building blocks in React Applications like:
 * JSX
@@ -89,14 +95,32 @@ Now, instead of sending completely new HTML to the browser, React sends the HTML
 * Working with Forms
 * Lifting State Up
 
+
+---
+
 >## Describe tools like Babel, WebPack and create-react-app and how they fit in to the React-world
+
+
+---
 
 >## Explain, using examples, about Class Components, versus pure JavaScript functions in React, and when to use them.
 
+
+---
+
 >## Explain the purpose of Client Side Routing in a SPA
+
+
+---
 
 >## Explain, using an example of your own, the basic “building blocks” in react-router
 
+
+---
+
 >## Explain what is required to use react-router with a create-react-app project build from scratch
+
+
+---
 
 >## Explain, using examples, how JavaScript array methods, like filter, map and (reduce) are used to generate dynamic HTML structures (tables, ul's etc.), and explain about React Keys.
