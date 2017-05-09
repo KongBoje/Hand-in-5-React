@@ -120,7 +120,7 @@ So when you create a react SPA it really boils down to the react-router and the 
 ---
 
 >## Explain, using an example, the fundamental building blocks in React Applications like:
-* JSX
+### JSX
 React uses JSX for templating instead of regular JavaScript. It is not necessary to use it, but there are some pros that comes with it.
 
 JSX is faster because it performs optimization while compiling code to JavaScript.
@@ -160,13 +160,13 @@ export default class JSX_App extends React.Component {
 ```
 In this example we see Nested elements(<h1> inside <div> which is the wrapper), Attributes(data-myattribute in the <p> tag), Javascript expressions(the {1+1} and the conditional (ternary) expression <h2>{i == 1 ? 'True!' : 'False'}</h2>), Styling which is seen with the Styler code above the return statement and comments(buttom place in the code just above the closing tag for div).
 
-* Rendering Elements
-* Components and Props
-* State and LifeCycle
-* Handling Events
-* List and Keys
-* Working with Forms
-* Lifting State Up
+### Rendering Elements
+### Components and Props
+### State and LifeCycle
+### Handling Events
+### List and Keys
+### Working with Forms
+### Lifting State Up
 
 
 ---
