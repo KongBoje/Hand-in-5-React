@@ -396,15 +396,300 @@ export default PropsOverview;
 The only thing in this example that is different is that the source of our data is now originally coming from the state.
 
 ### State and LifeCycle
+#### State
+State is the place where the data comes from. You should always try to make your state as simple as possible and minimize number of stateful components. If you have, for example, ten components that need data from the state, you should create one container component that will keep the state for all of them.
+##### State example:
+Code sample below shows how to create stateful component using EcmaScript2016 syntax.
+```javascript
+import React from "react"
+
+class StateApp extends React.Component {
+   constructor(props) {
+      super(props);
+		
+      this.state = {
+         header: "Header from state...",
+         "content": "Content from state..."
+      }
+   }
+
+   render() {
+      return (
+         <div>
+           <a href="https://www.tutorialspoint.com/reactjs/reactjs_state.htm" target="_blank">State Tutorial</a>
+
+           <h1>{this.state.header}</h1>
+           <h2>{this.state.content}</h2>
+         </div>
+      )
+   }
+}
+
+export default StateApp;
+```
+#### Component life-cycle
+componentWillMount is executed before rendering, on both server and client side.
+
+componentDidMount is executed after first render only on the client side. This is where AJAX requests and DOM or state updates should occur. This method is also used for integration with other JavaScript frameworks and any functions with delayed execution like setTimeout or setInterval. We are using it to update the state so we can trigger the other lifecycle methods.
+
+componentWillReceiveProps is invoked as soon as the props are updated before another render is called. We triggered it from setNewNumber when we updated the state.
+
+shouldComponentUpdate should return true or false value. This will determine if component will be updated or not. This is set to true by default. If you are sure that component doesn't need to render after state or props are updated, you can return false value.
+
+componentWillUpdate is called just before rendering.
+
+componentDidUpdate is called just after rendering.
+
+componentWillUnmount is called after the component is unmounted from the dom. We are unmounting our component in main.js.
+
+In our example we are setting initial state in constructor function. The setNewnumber is used to update the state. All the lifecycle methods are inside Content component.
+
+##### Life-cycle example:
+```
+import React from "react"
+
+class ComponentLifecycleAPP extends React.Component {
+   constructor(props) {
+      super(props);
+		
+      this.state = {
+         data: 0
+      }
+
+      this.setNewNumber = this.setNewNumber.bind(this)
+   };
+
+   setNewNumber() {
+      this.setState({data: this.state.data + 1})
+   }
+   
+   render() {
+      return (
+         <div>
+           <a href="https://www.tutorialspoint.com/reactjs/reactjs_component_life_cycle.htm" 
+           target="_blank">ComponentLifecycleAPP Tutorial</a><br /><br />
+
+           <button onClick = {this.setNewNumber}>INCREMENT</button>
+           <Content myNumber = {this.state.data}></Content>
+         </div>
+      )
+   }
+}
+
+class Content extends React.Component {
+
+   componentWillMount() {
+      console.log('Component WILL MOUNT!')
+   }
+
+   componentDidMount() {
+      console.log('Component DID MOUNT!')
+   }
+
+   componentWillReceiveProps(newProps) {    
+      console.log('Component WILL RECIEVE PROPS!')
+   }
+
+   shouldComponentUpdate(newProps, newState) {
+      return true;
+   }
+
+   componentWillUpdate(nextProps, nextState) {
+      console.log('Component WILL UPDATE!');
+   }
+
+   componentDidUpdate(prevProps, prevState) {
+      console.log('Component DID UPDATE!')
+   }
+
+   componentWillUnmount() {
+      console.log('Component WILL UNMOUNT!')
+   }
+	
+   render() {
+      return (
+         <div>
+            <h3>{this.props.myNumber}</h3>
+         </div>
+      );
+   }
+}
+
+export default ComponentLifecycleAPP;
+```
+We can render this with this code: 
+
+ReactDOM.render(<App/>, document.getElementById('app'));
+
+setTimeout(() => {
+   ReactDOM.unmountComponentAtNode(document.getElementById('app'));}, 10000);
 
 ### Handling Events
+This is a simple example where we only use one component. We are just adding onClick event that will trigger updateState function once the button is clicked.
+#### Event handling example:
+```javascript
+import React from "react"
+
+class EventApp extends React.Component {
+   constructor(props) {
+      super(props);
+		
+      this.state = {
+         data: 'Initial data...'
+      }
+
+      this.updateState = this.updateState.bind(this);
+
+   };
+
+   updateState() {
+      this.setState({data: 'Data updated...'})
+   }
+   
+   render() {
+      return (
+         <div>
+           <a href="https://www.tutorialspoint.com/reactjs/reactjs_events.htm" target="_blank">Events Tutorial</a><br /><br />
+           
+           <button onClick = {this.updateState}>CLICK</button>
+           <h4>{this.state.data}</h4>
+         </div>
+      )
+   }
+}
+
+export default EventApp;
+```
 
 ### List and Keys
+#### Lists
+A good solution would be flexible to the amount of items in a list and would render with its own containing element in a repeating fashion. Notice how the following render function is able to accomodate arrays of all sizes. This is due to rendering in a list of React Elements created from the list of numbers coming in from the props.
+##### List example
+```javascript
+var ProperListRender = React.createClass({
+    render: function() {
+      return (
+        <ul>
+          {this.props.list.map(function(listValue){
+            return <li>{listValue}</li>;
+          })}
+        </ul>
+      )
+    }
+  });
+  React.render(<ProperListRender list={[1,2,3,4,5]} />, document.getElementById('proper-list-render1'));
+  React.render(<ProperListRender list={[1,2,3,4,5,6,7,8,9,10]} />, document.getElementById('proper-list-render2'));
+```
+The solution you get is enough to accomodate as many or as little list items that comes from the props field.
+#### Keys
+React keys are useful when working with dynamically created components or when your lists are altered by users. Setting the key value will keep your components uniquely identified after the change.
+##### Key example:
+Let's dynamically create Content elements with unique index (i). The map function will create three elements from our data array. Since key value needs to be unique for every element, we will assign i as a key for each created element.
+```javascript
+import React from "react"
+
+class KeysApp extends React.Component {
+  constructor() {
+    super();
+
+    this.state = {
+      data:
+      [
+        {
+          component: 'First...',
+          id: 1
+        },
+
+        {
+          component: 'Second...',
+          id: 2
+        },
+
+        {
+          component: 'Third...',
+          id: 3
+        },
+
+        {
+          component: 'Fourth...',
+          id: 4
+        }
+      ]
+    }
+
+  }
+
+  render() {
+    return (
+      <div>
+        <a href="https://www.tutorialspoint.com/reactjs/reactjs_keys.htm" target="_blank">Keys Tutorial</a><br /><br />
+
+        <div>
+          {this.state.data.map((dynamicComponent, i) => <Content
+            key={i} componentData={dynamicComponent} />)}
+        </div>
+      </div>
+    )
+  }
+}
+
+class Content extends React.Component {
+  render() {
+    return (
+      <div>
+        <div>{this.props.componentData.component}</div>
+        <div>{this.props.componentData.id}</div>
+      </div>
+    );
+  }
+}
+
+export default KeysApp;
+```
 
 ### Working with Forms
+In example below we are setting input form with value = {this.state.data}. This allow us to update state whenever input value changes. We are using onChange event that will watch input changes and update state accordingly.
+#### Form example:
+```javascript
+import React from "react"
+
+class FormsApp extends React.Component {
+   constructor(props) {
+      super(props);
+		
+      this.state = {
+         data: 'Initial data...'
+      }
+
+      this.updateState = this.updateState.bind(this);
+
+   };
+
+   updateState(e) {
+      this.setState({data: e.target.value});
+   }
+
+   render() {
+      return (
+         <div>
+           <a href="https://www.tutorialspoint.com/reactjs/reactjs_forms.htm" target="_blank">Forms Tutorial</a><br /><br />
+           
+           <input type = "text" value = {this.state.data} 
+               onChange = {this.updateState} />
+           <h4>{this.state.data}</h4>
+         </div>
+      )
+   }
+}
+
+export default FormsApp;
+```
 
 ### Lifting State Up
+#### Lifted state example:
+```javascript
 
+```
 
 ---
 
