@@ -718,13 +718,24 @@ The babel team implemented various plugins to compile React's JSX to `React.crea
 React.createElement is used like this:
 - return React.createElement("label", {className: "label"},
 
-
 ### Webpack
+With Webpack, you give a single path. The path to your entry point. This is typically index.js or main.js. Webpack will now investigate your application. It will figure out how everything is connected through require, import, etc. statements, url values in your CSS, href values in image tags, etc. It creates a complete dependency graph of all the assets your application needs to run. All of this just pointing to one single file.
 
+An asset is a file. It being an image, css, json, js, jsx etc. And this file is a node in the dependency graph created by Webpack.
+
+Webpack in Reactjs is used to assemble code into a single file and to provide a development server.
 
 ### create-react-app
+React, use create-react-app to automate the build of your app. There is no configuration file, and react-scripts is the only extra build dependency in your package.json. Your environment will have everything you need to build a modern React app:
 
+- React, JSX, ES6, and Flow syntax support.
+- Language extras beyond ES6 like the object spread operator.
+- A dev server that lints for common errors.
+- Import CSS and image files directly from JavaScript.
+- Autoprefixed CSS, so you don’t need -webkit or other prefixes.
+- A build script to bundle JS, CSS, and images for production, with sourcemaps.
 
+The feature set is intentionally limited. It doesn’t support advanced features such as server rendering or CSS modules. The tool is also non-configurable because it is hard to provide a cohesive experience and easy updates across a set of tools when the user can tweak anything.
 
 ---
 
