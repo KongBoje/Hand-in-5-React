@@ -688,12 +688,42 @@ export default FormsApp;
 ### Lifting State Up
 #### Lifted state example:
 ```javascript
-
+TBD
 ```
 
 ---
 
 >## Describe tools like Babel, WebPack and create-react-app and how they fit in to the React-world
+### Babel
+Babel is a essentially an ECMAScript 6 to ECMAScript 5 compiler. It allows you to use ES6 features in your projects and then compiles ES5 for you to use in production.
+
+Babel uses configurable plugins which are applied to the source code and converted to application code. Most of the transforms are for converting specific ES2015 and ES2016 code into ES5 code. However plugins for wrapping react components, static type checking and contracts have been written using Babel.
+
+You can see here how for example an arrow-function from ES6 looks compared to a normal javascript function.
+#### Heres an arrow-function example:
+```javascript
+let myFunc = () => {
+    console.log("ES6 is nice!");
+};
+```
+
+#### Here is a normal function example:
+```javascript
+var myFunc = function() {
+    console.log("ES6 is nice!");
+};
+```
+The babel team implemented various plugins to compile React's JSX to `React.createElement`. All the features used by react including Es2016, classes and others are bundled into a preset called the `babel-preset-react` which you can use in your application.
+
+React.createElement is used like this:
+- return React.createElement("label", {className: "label"},
+
+
+### Webpack
+
+
+### create-react-app
+
 
 
 ---
