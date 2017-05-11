@@ -688,13 +688,54 @@ export default FormsApp;
 ### Lifting State Up
 #### Lifted state example:
 ```javascript
-
+TBD
 ```
 
 ---
 
 >## Describe tools like Babel, WebPack and create-react-app and how they fit in to the React-world
+### Babel
+Babel is a essentially an ECMAScript 6 to ECMAScript 5 compiler. It allows you to use ES6 features in your projects and then compiles ES5 for you to use in production.
 
+Babel uses configurable plugins which are applied to the source code and converted to application code. Most of the transforms are for converting specific ES2015 and ES2016 code into ES5 code. However plugins for wrapping react components, static type checking and contracts have been written using Babel.
+
+You can see here how for example an arrow-function from ES6 looks compared to a normal javascript function.
+#### Heres an arrow-function example:
+```javascript
+let myFunc = () => {
+    console.log("ES6 is nice!");
+};
+```
+
+#### Here is a normal function example:
+```javascript
+var myFunc = function() {
+    console.log("ES6 is nice!");
+};
+```
+The babel team implemented various plugins to compile React's JSX to `React.createElement`. All the features used by react including Es2016, classes and others are bundled into a preset called the `babel-preset-react` which you can use in your application.
+
+React.createElement is used like this:
+- return React.createElement("label", {className: "label"},
+
+### Webpack
+With Webpack, you give a single path. The path to your entry point. This is typically index.js or main.js. Webpack will now investigate your application. It will figure out how everything is connected through require, import, etc. statements, url values in your CSS, href values in image tags, etc. It creates a complete dependency graph of all the assets your application needs to run. All of this just pointing to one single file.
+
+An asset is a file. It being an image, css, json, js, jsx etc. And this file is a node in the dependency graph created by Webpack.
+
+Webpack in Reactjs is used to assemble code into a single file and to provide a development server.
+
+### create-react-app
+React, use create-react-app to automate the build of your app. There is no configuration file, and react-scripts is the only extra build dependency in your package.json. Your environment will have everything you need to build a modern React app:
+
+- React, JSX, ES6, and Flow syntax support.
+- Language extras beyond ES6 like the object spread operator.
+- A dev server that lints for common errors.
+- Import CSS and image files directly from JavaScript.
+- Autoprefixed CSS, so you don’t need -webkit or other prefixes.
+- A build script to bundle JS, CSS, and images for production, with sourcemaps.
+
+The feature set is intentionally limited. It doesn’t support advanced features such as server rendering or CSS modules. The tool is also non-configurable because it is hard to provide a cohesive experience and easy updates across a set of tools when the user can tweak anything.
 
 ---
 
