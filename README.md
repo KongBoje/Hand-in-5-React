@@ -830,6 +830,19 @@ There is nothing in the code above, that takes care of the actual navigation Tha
 
 >## Explain, using examples, how JavaScript array methods, like filter, map and (reduce) are used to generate dynamic HTML structures (tables, ul's etc.), and explain about React Keys.
 
+in this [musician](https://github.com/KongBoje/Hand-in-5-React/tree/master/musician-app) example app we use both the map and filter array methods.
+
+Here the filter method uses the map method to filter out the stars which are bigger or equal to those searched for, it then filters those stars and maps them into a new array, which is then shown in a new rendered table.
+
+the map-callback adds a unique id to each row.
+
+##### React Keys
+Keys help React identify which items have changed, are added, or are removed. Keys should be given to the elements inside the array to give the elements a stable identity:
+
+If you forget to add keys, React will provide a warning!
+
+This is also seen in the musician example.
+
 ---
 
 >## Explain Mobx and React.
