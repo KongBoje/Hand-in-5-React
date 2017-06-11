@@ -778,11 +778,14 @@ The example used for this question is [here](https://github.com/KongBoje/Hand-in
 ---
 
 >## Explain what is required to use react-router with a create-react-app project build from scratch
-
+![alt tag](http://slides3-plaul.rhcloud.com/reactRouting/images/router-links.PNG)
+There is nothing in the code above, that takes care of the actual navigation That's the Job of the Router, the primary component of the React Router Library.
 
 ---
 
 >## Explain, using examples, how JavaScript array methods, like filter, map and (reduce) are used to generate dynamic HTML structures (tables, ul's etc.), and explain about React Keys.
+
+---
 
 >## Explain Mobx and React.
 Mobx - state management library for front end, typically used with React library. Mobx is automatic and a lot of the magic happens behind the scene. If you have a lot of values, you just need to note them as @observable values, so when this value updates, everything that depends on it also updates.
