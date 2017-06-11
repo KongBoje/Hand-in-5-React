@@ -740,7 +740,30 @@ The feature set is intentionally limited. It doesn’t support advanced features
 ---
 
 >## Explain, using examples, about Class Components, versus pure JavaScript functions in React, and when to use them.
+Components let you split the UI into independent, reusable pieces, and think about each piece in isolation.
 
+Conceptually, components are like JavaScript functions. They accept arbitrary inputs (called "props") and return React elements describing what should appear on the screen.
+
+They are also used to make the code more readable and pretty. Instead of just placing all the code in one big file, we split them up in more components and render them individually.
+
+When React sees an element representing a user-defined component, it passes JSX attributes to this component as a single object. We call this object "props".
+
+Component example:
+```javascript
+var ProperListRender = React.createClass({
+    render: function() {
+      return (
+        <ul>
+          {this.props.list.map(function(listValue){
+            return <li>{listValue}</li>;
+          })}
+        </ul>
+      )
+    }
+  });
+  React.render(<ProperListRender list={[1,2,3,4,5]} />, document.getElementById('proper-list-render1'));
+  React.render(<ProperListRender list={[1,2,3,4,5,6,7,8,9,10]} />, document.getElementById('proper-list-render2'));
+```
 
 ---
 
