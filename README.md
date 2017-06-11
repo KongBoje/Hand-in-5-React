@@ -750,20 +750,42 @@ When React sees an element representing a user-defined component, it passes JSX 
 
 Component example:
 ```javascript
-var ProperListRender = React.createClass({
-    render: function() {
-      return (
-        <ul>
-          {this.props.list.map(function(listValue){
-            return <li>{listValue}</li>;
-          })}
-        </ul>
-      )
-    }
-  });
-  React.render(<ProperListRender list={[1,2,3,4,5]} />, document.getElementById('proper-list-render1'));
-  React.render(<ProperListRender list={[1,2,3,4,5,6,7,8,9,10]} />, document.getElementById('proper-list-render2'));
+class Welcome extends React.Component {
+  render() {
+    return <h1>Hello, {this.props.name}</h1>;
+  }
+}
 ```
+
+Pure javascript function example:
+```javascript
+function Welcome(props) {
+  return <h1>Hello, {props.name}</h1>;
+}
+```
+
+Components and pure javascript functions are basically the same the difference though is that the components are classes and not functions.
+And this makes you able to use local state and lifecycle hooks
+
+Local state:
+```javascript
+constructor(props) {
+    super(props);
+    this.state = {date: new Date()};
+  }
+```
+
+lifecycle method hooks:
+```javascript
+componentDidMount() {
+    this.timerID = setInterval(
+      () => this.tick(),
+      1000
+    );
+  }
+```
+
+So the difference is basically that if you want a lifecycle with state in your app or program you want to use class components and not pure javascript functions.
 
 ---
 
