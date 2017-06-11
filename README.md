@@ -745,12 +745,35 @@ The feature set is intentionally limited. It doesn’t support advanced features
 ---
 
 >## Explain the purpose of Client Side Routing in a SPA
+In a web application, routing is the process of using URLs to drive the User Interface (UI). Main functions from the users view:
+* Bookmarking (allows users to add, annotate, edit, and share bookmarks of web documents). Also called an internet shortcut.
+* Sharing Users can share content by sending a link to a certain page.
+* Navigation - loading the app first time, changing URL manually, clicking links within app, etc.
 
+
+In a traditional web application, the server renders HTML one page at a time. Users navigate an application by clicking through URLs, which are sent to the server via HTTP, and the server responds appropriately via a server-side router.  
+With a SPA, "ALL" Route Handling are taken care of Client-side.
 
 ---
 
 >## Explain, using an example of your own, the basic “building blocks” in react-router
+The task of navigating via URL's in a SPA is called Routing and is typically being handled by a specific Router Package, the most commonly used for React is react-router library.  
+React Router:
+* Keeps your UI in sync with the URL
+* simple API with powerful features (lazy code loading, dynamic route matching, location transition handling). 
 
+
+A route handler can do several things:
+* render a React Template.
+* redirect to a new route.
+* handle actions that involve changing a model or transitioning to a new route.
+
+To install react-router (in a terminal, in you project root):
+```Terminal
+npm install react-router@3 --save
+```
+
+The example used for this question is [here](https://github.com/KongBoje/Hand-in-5-React/tree/master/ReactExRoutBooks/rout-ex-react-front)
 
 ---
 
@@ -760,3 +783,15 @@ The feature set is intentionally limited. It doesn’t support advanced features
 ---
 
 >## Explain, using examples, how JavaScript array methods, like filter, map and (reduce) are used to generate dynamic HTML structures (tables, ul's etc.), and explain about React Keys.
+
+>## Explain Mobx and React.
+Mobx - state management library for front end, typically used with React library. Mobx is automatic and a lot of the magic happens behind the scene. If you have a lot of values, you just need to note them as @observable values, so when this value updates, everything that depends on it also updates.
+Basic MobX decorators like:
+* @observable
+* @computed
+* @action - use on everything that can change
+* @observer
+
+npm install -g json-server ---------------> install at the root of the project for running the json file backend from the server, the project is in.
+
+---
