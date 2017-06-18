@@ -740,23 +740,119 @@ The feature set is intentionally limited. It doesn’t support advanced features
 ---
 
 >## Explain, using examples, about Class Components, versus pure JavaScript functions in React, and when to use them.
+Components let you split the UI into independent, reusable pieces, and think about each piece in isolation.
 
+Conceptually, components are like JavaScript functions. They accept arbitrary inputs (called "props") and return React elements describing what should appear on the screen.
+
+They are also used to make the code more readable and pretty. Instead of just placing all the code in one big file, we split them up in more components and render them individually.
+
+When React sees an element representing a user-defined component, it passes JSX attributes to this component as a single object. We call this object "props".
+
+Component example:
+```javascript
+class Welcome extends React.Component {
+  render() {
+    return <h1>Hello, {this.props.name}</h1>;
+  }
+}
+```
+
+Pure javascript function example:
+```javascript
+function Welcome(props) {
+  return <h1>Hello, {props.name}</h1>;
+}
+```
+
+Components and pure javascript functions are basically the same the difference though is that the components are classes and not functions.
+And this makes you able to use local state and lifecycle hooks
+
+Local state:
+```javascript
+constructor(props) {
+    super(props);
+    this.state = {date: new Date()};
+  }
+```
+
+lifecycle method hooks:
+```javascript
+componentDidMount() {
+    this.timerID = setInterval(
+      () => this.tick(),
+      1000
+    );
+  }
+```
+
+So the difference is basically that if you want a lifecycle with state in your app or program you want to use class components and not pure javascript functions.
 
 ---
 
 >## Explain the purpose of Client Side Routing in a SPA
+In a web application, routing is the process of using URLs to drive the User Interface (UI). Main functions from the users view:
+* Bookmarking (allows users to add, annotate, edit, and share bookmarks of web documents). Also called an internet shortcut.
+* Sharing Users can share content by sending a link to a certain page.
+* Navigation - loading the app first time, changing URL manually, clicking links within app, etc.
 
+
+In a traditional web application, the server renders HTML one page at a time. Users navigate an application by clicking through URLs, which are sent to the server via HTTP, and the server responds appropriately via a server-side router.  
+With a SPA, "ALL" Route Handling are taken care of Client-side.
 
 ---
 
 >## Explain, using an example of your own, the basic “building blocks” in react-router
+The task of navigating via URL's in a SPA is called Routing and is typically being handled by a specific Router Package, the most commonly used for React is react-router library.  
+React Router:
+* Keeps your UI in sync with the URL
+* simple API with powerful features (lazy code loading, dynamic route matching, location transition handling). 
 
+
+A route handler can do several things:
+* render a React Template.
+* redirect to a new route.
+* handle actions that involve changing a model or transitioning to a new route.
+
+To install react-router (in a terminal, in you project root):
+```Terminal
+npm install react-router@3 --save
+```
+
+The example used for this question is [here](https://github.com/KongBoje/Hand-in-5-React/tree/master/ReactExRoutBooks/rout-ex-react-front)
 
 ---
 
 >## Explain what is required to use react-router with a create-react-app project build from scratch
-
+![alt tag](http://slides3-plaul.rhcloud.com/reactRouting/images/router-links.PNG)
+There is nothing in the code above, that takes care of the actual navigation That's the Job of the Router, the primary component of the React Router Library.
 
 ---
 
 >## Explain, using examples, how JavaScript array methods, like filter, map and (reduce) are used to generate dynamic HTML structures (tables, ul's etc.), and explain about React Keys.
+
+in this [musician](https://github.com/KongBoje/Hand-in-5-React/tree/master/musician-app) example app we use both the map and filter array methods.
+
+Here the filter method uses the map method to filter out the stars which are bigger or equal to those searched for, it then filters those stars and maps them into a new array, which is then shown in a new rendered table.
+
+the map-callback adds a unique id to each row.
+
+##### React Keys
+Keys help React identify which items have changed, are added, or are removed. Keys should be given to the elements inside the array to give the elements a stable identity:
+
+If you forget to add keys, React will provide a warning!
+
+This is also seen in the musician example.
+
+---
+
+>## Explain Mobx and React.
+Mobx - state management library for front end, typically used with React library. Mobx is automatic and a lot of the magic happens behind the scene. If you have a lot of values, you just need to note them as @observable values, so when this value updates, everything that depends on it also updates.
+Basic MobX decorators like:
+* @observable
+* @computed
+* @action - use on everything that can change
+* @observer
+
+npm install -g json-server ---------------> install at the root of the project for running the json file backend from the server, the project is in.
+
+---
