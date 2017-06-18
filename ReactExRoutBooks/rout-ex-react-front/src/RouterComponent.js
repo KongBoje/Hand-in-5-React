@@ -13,6 +13,7 @@ class RouterComponent extends React.Component {
     
     constructor(props) {
         super(props)
+        console.log("rout constructor")
     }
 
     render() {
@@ -23,7 +24,7 @@ class RouterComponent extends React.Component {
                     <Route path="/" component={App}>
                         <IndexRoute component={Home}></IndexRoute>
                         <Route path="products" component={() => (<Products bookStore={bookStore}/>)}></Route>
-                        <Route path="products/details/:id" render={(props) => (<Details bookStore={bookStore} id={props.match.params.id} />)} ></Route>
+                        <Route path="products/details/:id" bookStore={bookStore} component={Details}></Route>
                         <Route path="company" component={Company} />
                         <Route path="blog" component={Blog} />
                     </Route>

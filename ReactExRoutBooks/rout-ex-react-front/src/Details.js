@@ -8,15 +8,16 @@ class Details extends React.Component {
 
   constructor(props) {
     super(props)
+    console.log("HER")
   }
 
   deleteBooks = () => {
-    this.props.bookStore.deleteBook(this.props.id)
+    this.props.route.bookStore.deleteBook(this.props.routeParams.id)
   }
 
   render() {
-    let id = this.props.id
-    let book = this.props.bookStore.getOneBook(id)
+    let id = this.props.routeParams.id
+    let book = this.props.route.bookStore.getOneBook(id)
 
     if (book == null) {
       setTimeout(() => {
@@ -43,7 +44,7 @@ class Details extends React.Component {
             <Link to="/products" onClick={this.deleteBooks}>Delete Book</Link>
           </button>
         </div>
-        <Update bookStore={this.props.bookStore} book={book} />
+        <Update bookStore={this.props.route.bookStore} book={book} />
       </div>
     );
   }

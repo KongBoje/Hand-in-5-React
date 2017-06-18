@@ -1,5 +1,5 @@
 import { action, useStrict, extendObservable } from 'mobx'
-let fetchURL = "http://localhost:3100"
+var fetchURL = "http://localhost:3100"
 import axios from 'axios'
 
 useStrict(true)
@@ -18,12 +18,13 @@ class BookStore {
   }
 
   getOneBook = action((id) => {
+    console.log("BOOK HERE")
     if (this._books == null) {
       return null
     }
     var bookReturn;
-    this._books.forEach((book, index) => {
-      if (book.id === id) {
+    this._books.forEach((book,index) => {
+      if (book.id == id) {
         bookReturn = this._books[index]
       }
     })
