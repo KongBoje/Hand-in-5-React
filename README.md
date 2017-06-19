@@ -723,7 +723,7 @@ With Webpack, you give a single path. The path to your entry point. This is typi
 
 An asset is a file. It being an image, css, json, js, jsx etc. And this file is a node in the dependency graph created by Webpack.
 
-Webpack in Reactjs is used to assemble code into a single file and to provide a development server.
+Webpack in Reactjs is used to assemble code into a single file and to provide a development server(A development server is a type of server that is designed to simplify the development and testing of programs, websites, software or applications for software programmers).
 
 ### create-react-app
 React, use create-react-app to automate the build of your app. There is no configuration file, and react-scripts is the only extra build dependency in your package.json. Your environment will have everything you need to build a modern React app:
